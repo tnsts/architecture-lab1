@@ -7,10 +7,31 @@ import (
 )
 
 func TestCalculatePostfix(t *testing.T) {
-	res, err := PrefixToPostfix("1 2 + 3 * 4 - 5 /")
-	if assert.Nil(t, err) {
-		assert.Equal(t, 1, res)
+
+	tests := []struct {
+		input string
+		exp int
+	}{
+		{"1 2 + 3 * 4 - 5 /", 1},
+		{"2 3 ^ 1 +", 9},
+		{"7 3 + 5 / 2 4 ^ * 8 - 6 + 1 +", 31},
+		{"4 2 - 3 * 5 +", 11},
+		{"6 2 ^ 9 / 1 * 2 3 * - 3 + 8 +", 9},
 	}
+
+	for _, test := range tests{
+		res, err := CalculatePostfix(test.input)
+		if assert.Nil(t, err) {
+			assert.Equal(t, res, test.exp)
+		}
+	}
+
+	_, err := CalculatePostfix("15&*")
+	assert.NotNil(t, err)
+
+	_, err1 := CalculatePostfix("")
+	assert.NotNil(t, err1)
+
 }
 
 func ExampleCalculatePostfix() {
