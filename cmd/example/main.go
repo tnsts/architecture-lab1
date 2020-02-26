@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
-	lab1 "https://github.com/tnsts/architecture-lab1"
+	"architecture-lab1" //"https://github.com/tnsts/architecture-lab1"
 )
 
 func main() {
@@ -18,4 +18,6 @@ func main() {
 	} else {
 		fmt.Println("Error!", err)
 	}
+
+	fmt.Println(buildVersion)
 }
