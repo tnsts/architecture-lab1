@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
-	"architecture-lab1" //"https://github.com/tnsts/architecture-lab1"
+	"github.com/lesia-s/architecture-lab1"
 )
 
 func main() {
