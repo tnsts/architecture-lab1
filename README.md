@@ -2,7 +2,7 @@
 
 1 variant (postfix calculate). Testify library.
 
-* [Passed](https://travis-ci.com/tnsts/architecture-lab1/builds/151000723)
+* [Passed](https://travis-ci.com/tnsts/architecture-lab1/builds/155540553)
 
 * [Failed](https://travis-ci.com/tnsts/architecture-lab1/builds/150999997)
 
