@@ -1,10 +1,10 @@
 package lab1
 
 import (
-		"fmt"
 		"math"
 		"strings"
 		"strconv"
+		"errors"
 	)
 
 func CalculatePostfix(input string) (int, error) {
@@ -14,7 +14,7 @@ func CalculatePostfix(input string) (int, error) {
 	for _, element := range expression {
 		if element == "+" || element == "-" || element == "/" || element == "*" || element == "^" {
 			if len(stack) < 2 {
-				return 0, fmt.Errorf("Expression is wrong. Can't calculate: %s", element)
+				return 0, errors.New("Expression is wrong.")
 			}
 
 			var values []int
@@ -36,7 +36,7 @@ func CalculatePostfix(input string) (int, error) {
 		} else {
 			value, err := strconv.Atoi(element)
 			if err != nil {
-				return 0, fmt.Errorf("Invalid element of expression: %s", element)
+				return 0, errors.New("Invalid element of expression.")
 			}
 
 			stack = append(stack, value)
@@ -44,7 +44,7 @@ func CalculatePostfix(input string) (int, error) {
 	}
 
 	if len(stack) != 1 {
-		return 0, fmt.Errorf("Expression is not complete")
+		return 0, errors.New("Expression is not complete.")
 	}
 
 	return stack[0], nil
